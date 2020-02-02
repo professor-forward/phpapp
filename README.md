@@ -133,7 +133,7 @@ And now you can open in a browser, your (first?) PHP web app.
 
 The output should look similar to
 
-![PHP INFO](docs/screenshots/phpinfo.png)
+![DB connection](docs/screenshots/db_results.png)
 
 
 ## Troubleshooting
@@ -159,5 +159,24 @@ psql -c "drop database phpapp"
 Now you should be able to follow the instructions above
 to create your phpapp database.
 
+### Unable to connect to database?
 
+You might see several warnings or errors, please read them
+
+```
+Warning: pg_connect(): Unable to connect to PostgreSQL server:
+FATAL: database "phpapp" does not exist in
+phpapp/public/index.php on line 3
+
+Warning: pg_query() expects parameter 1 to be resource,
+bool given in phpapp/public/index.php on line 4
+
+Warning: pg_fetch_all() expects parameter 1 to be resource,
+null given in phpapp/public/index.php on line 5
+```
+
+Follow the instructions and make sure your database is
+properly setup.  If you are connecting to a remote database,
+then you will need to update the connection string with
+the correct values.
 
