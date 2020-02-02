@@ -133,7 +133,7 @@ And now you can open in a browser, your (first?) PHP web app.
 
 The output should look similar to
 
-![DB connection](docs/screenshots/db_results.png)
+![Formatted data](docs/screenshots/formatted_data.png)
 
 
 ## Troubleshooting
