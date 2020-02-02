@@ -49,4 +49,4 @@ And now you can open in a browser, your (first?) PHP web app.
 
 The output should look similar to
 
-![My First App](docs/screenshots/hello_world.png)
+![PHP INFO](docs/screenshots/phpinfo.png)
