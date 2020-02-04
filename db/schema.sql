@@ -13,6 +13,7 @@ CREATE TABLE actions (
   data jsonb,
   inserted_at timestamp DEFAULT NOW(),
   updated_at timestamp DEFAULT NOW(),
+  created_by varchar(100),
   PRIMARY KEY (id)
 );
 
