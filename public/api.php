@@ -1,5 +1,5 @@
 <?php
 
-$reply = ["hello" => "world"];
+$reply = getallheaders();
 header("Content-Type: application/json");
 echo json_encode($reply);
