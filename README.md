@@ -83,15 +83,16 @@ Let's run a few queries against our database.
 phpapp=# \dt+
 ```
 
-We should see two tables, like
+We should see three tables, like
 
 ```
                             List of relations
  Schema |       Name        | Type  |  Owner   |    Size    | Description
 --------+-------------------+-------+----------+------------+-------------
  public | actions           | table | aforward | 8192 bytes |
+ public | clients           | table | aforward | 8192 bytes |
  public | schema_migrations | table | aforward | 8192 bytes |
-(2 rows)
+(3 rows)
 ```
 
 Let's look at the data within the `schema_migrations` table.
@@ -107,8 +108,38 @@ The output should look similar to:
 --------------------------------------+----------------------------
  20200202110100-create-migrations.sql | 2020-02-02 11:39:55.014702
  20200202110200-create-actions.sql    | 2020-02-02 11:39:55.014702
-(2 rows)
+ 20200322173700-create-clients.sql    | 2020-03-22 18:15:50.238449
+(3 rows)
 ```
+
+#### seeding database
+
+You can run the following to insert some sample data into your database.
+
+```sql
+INSERT INTO clients
+  (name, data)
+VALUES
+  ('Big Co.', '{"credits": 100}'::json),
+  ('Small Co.', '{"credits": 100}'::json);
+```
+
+You can verify the automatically generated tokens, for example:
+
+```sql
+SELECT name,
+       token,
+       data
+FROM clients;
+```
+
+Returning something similar to:
+
+   name    |              token               |       data
+-----------+----------------------------------+------------------
+ Big Co.   | d7d85f7eac7360d725b44d327445473e | {"credits": 100}
+ Small Co. | 9f8983a8494c8a003e064374ffb77cb6 | {"credits": 100}
+
 
 ## Running
 
